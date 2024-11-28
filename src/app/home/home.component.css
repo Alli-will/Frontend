@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.section-ansiedade {
+    text-align: left;
+}
+
+
+.section-depressao,
+.section-ansiedade {
+    width: 40%; 
+    margin: 20px; 
+    background-color: #f9f9f9; 
+    padding: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
+    float: left; 
+}
+
+
+.section-depressao h2,
+.section-ansiedade h2 {
+    text-align: right; 
+    color: #333; 
+}
+
+
+.section-depressao p,
+.section-depressao ul,
+.section-ansiedade p,
+.section-ansiedade ul {
+    text-align: justify; 
+    color: #555; 
+    line-height: 1.6; 
+}
+
+
+.section-depressao ul.no-bullets,
+.section-ansiedade ul.no-bullets {
+    list-style: none; 
+    padding-left: 0; 
+}
+
+.section-depressao ul.no-bullets li::before,
+.section-ansiedade ul.no-bullets li::before {
+    content: "• "; 
+    color: #007BFF; 
+    font-weight: bold;
+}
+
+
+.section-videos {
+    background-color: #f9f9f9;
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.video {
+    width: 300px;
+    text-align: center;
+}
+
+.video iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+.logout-button {
+    background-color: #f44336; 
+    color: white;
+    border: none;
+    padding: 8px 16px; 
+    font-size: 14px; 
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    width: auto; 
+    display: inline-block; 
+    text-align: center; 
+}
+
+.logout-button:hover {
+    background-color: #d32f2f; 
+}
+
+.logout-button:focus {
+    outline: none; 
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    background-color: #f4f4f9;
+}

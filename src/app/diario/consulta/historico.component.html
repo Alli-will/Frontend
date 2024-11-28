@@ -1,0 +1,24 @@
+<section id="historico" class="section-diary">
+    <div class="container">
+      <h2>Histórico de Diários</h2>
+  
+    
+      <button (click)="navegarHistorico()">Voltar para o Diário</button>
+  
+      
+      <div *ngIf="entradas.length > 0">
+        <h3>Entradas do Diário</h3>
+        <ul>
+          <li *ngFor="let entrada of entradas">
+            <strong>{{ entrada.date | date: 'dd/MM/yyyy' }}</strong> - {{ entrada.emotion }}<br />
+            {{ entrada.description }}
+          </li>
+        </ul>
+      </div>
+  
+     
+      <div *ngIf="entradas.length === 0">
+        <p>Não há entradas registradas ainda.</p>
+      </div>
+    </div>
+  </section>

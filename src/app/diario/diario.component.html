@@ -1,0 +1,49 @@
+<section id="diario" class="section-diary">
+    <div class="container">
+      
+      <div class="button-container">
+        
+        <button (click)="navegarHome()">Voltar para a Home</button>
+  
+        
+        <button (click)="navegarHistorico()">Consultar Diários</button>
+      </div>
+  
+      
+      <h2>Como foi seu dia?</h2>
+  
+      
+      <form (ngSubmit)="onSubmit()">
+        <label for="data">Data:</label>
+        <input
+          type="date"
+          id="data"
+          [(ngModel)]="data"
+          name="data"
+          required
+        />
+  
+        <label for="emocao">Emoção:</label>
+        <select id="emocao" [(ngModel)]="emocao" name="emocao" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="feliz">😊 Feliz</option>
+          <option value="triste">😔 Triste</option>
+          <option value="ansioso">😨 Ansioso</option>
+          <option value="raiva">😡 Com Raiva</option>
+          <option value="calmo">😌 Calmo</option>
+        </select>
+  
+        <label for="descricao">Descrição:</label>
+        <textarea
+          id="descricao"
+          [(ngModel)]="descricao"
+          name="descricao"
+          rows="5"
+          required
+          placeholder="Conte mais sobre como foi seu dia..."
+        ></textarea>
+  
+        <button type="submit">Registrar</button>
+      </form>
+    </div>
+  </section>

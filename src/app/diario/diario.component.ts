@@ -1,0 +1,94 @@
+import { Component, OnInit } from '@angular/core';
+import { MenuComponent } from '../menu/menu.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Para usar [(ngModel)]
+import { DiaryService } from '../services/diary.service'; // Serviço para integração com o back-end
+import { Router } from '@angular/router'; // Importando o Router para navegação
+
+@Component({
+  selector: 'app-diario',
+  standalone: true,
+  imports: [MenuComponent, CommonModule, FormsModule],
+  templateUrl: './diario.component.html',
+  styleUrls: ['./diario.component.css'],
+})
+export class DiarioComponent implements OnInit {
+  // Propriedades para capturar os dados do formulário
+  data: string = '';
+  emocao: string = '';
+  descricao: string = '';
+  pesquisa: string = '';
+  entradas: any[] = []; 
+
+  constructor(private diaryService: DiaryService, private router: Router) {}
+
+  ngOnInit(): void {
+    
+    this.carregarEntradas();
+  }
+
+  
+  onSubmit(): void {
+    const novaEntrada = {
+      date: this.data,
+      emotion: this.emocao,
+      description: this.descricao,
+    };
+
+    const token = localStorage.getItem('token'); 
+
+    if (!token) {
+      alert('Você precisa estar logado para criar uma entrada.');
+      return;
+    }
+
+    this.diaryService.createDiaryEntry(novaEntrada, token).subscribe({
+      next: () => {
+        alert('Entrada criada com sucesso!');
+        this.carregarEntradas(); 
+        this.resetarFormulario(); 
+      },
+      error: (err) => {
+        console.error('Erro ao criar entrada:', err);
+        alert('Erro ao criar entrada. Tente novamente.');
+      },
+    });
+  }
+
+  
+  carregarEntradas(): void {
+    const token = localStorage.getItem('token'); 
+
+    if (!token) {
+      alert('Você precisa estar logado para visualizar o diário.');
+      return;
+    }
+
+    this.diaryService.getDiaryEntries(token).subscribe({
+      next: (data) => {
+        this.entradas = data; 
+      },
+      error: (err) => {
+        console.error('Erro ao carregar entradas:', err);
+        alert('Erro ao carregar entradas. Tente novamente.');
+      },
+    });
+  }
+
+  
+  resetarFormulario(): void {
+    this.data = '';
+    this.emocao = '';
+    this.descricao = '';
+  }
+
+  
+  navegarHistorico(): void {
+    this.router.navigate(['/historico']);
+  }
+
+  
+  navegarHome(): void {
+    this.router.navigate(['/home']); 
+  }
+}

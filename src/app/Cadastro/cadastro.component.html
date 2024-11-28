@@ -1,0 +1,91 @@
+<form (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
+    <div class="cadastro-container">
+      <div class="cadastro-card">
+        <h2>Cadastro</h2>
+        <p>Preencha os dados abaixo para criar uma conta</p>
+  
+        <div class="form-group">
+          <label for="firstName">Nome</label>
+          <input
+            type="text"
+            id="firstName"
+            [(ngModel)]="user.firstName"
+            placeholder="Digite seu nome"
+            name="firstName"
+            required
+            #firstName="ngModel"
+          />
+          <div *ngIf="firstName.invalid && firstName.touched" class="error-message">
+            O nome é obrigatório.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="lastName">Sobrenome</label>
+          <input
+            type="text"
+            id="lastName"
+            [(ngModel)]="user.lastName"
+            placeholder="Digite seu sobrenome"
+            name="lastName"
+            required
+            #lastName="ngModel"
+          />
+          <div *ngIf="lastName.invalid && lastName.touched" class="error-message">
+            O sobrenome é obrigatório.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="user.email"
+            placeholder="Digite seu e-mail"
+            name="email"
+            required
+            email
+            #email="ngModel"
+          />
+          <div *ngIf="email.invalid && email.touched" class="error-message">
+            <div *ngIf="email.errors?.['required']">O e-mail é obrigatório.</div>
+            <div *ngIf="email.errors?.['email']">O e-mail não é válido.</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="user.password"
+            placeholder="Digite sua senha"
+            name="password"
+            required
+            minlength="6"
+            #password="ngModel"
+          />
+          <div *ngIf="password.invalid && password.touched" class="error-message">
+            <div *ngIf="password.errors?.['required']">A senha é obrigatória.</div>
+            <div *ngIf="password.errors?.['minlength']">A senha deve ter pelo menos 8 caracteres entre eles 1 Letra Minuscula, 1 Minuscula, 1 Simbolo e 1 Numero.</div>
+          </div>
+        </div>
+  
+        <button
+          type="submit"
+          class="cadastro-button"
+          [disabled]="cadastroForm.invalid"
+        >
+          Cadastrar
+        </button>
+        <button
+          type="button"
+          class="voltar-button"
+          (click)="voltar()"
+        >
+          Voltar para o Login
+        </button>
+      </div>
+    </div>
+  </form>

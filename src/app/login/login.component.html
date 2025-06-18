@@ -4,7 +4,6 @@
     <h2>Login</h2>
     <p>Bem-vindo!<br>Faça login ou cadastro para continuar.</p>
     <form (ngSubmit)="onSubmit()">
-      <div *ngIf="mensagem" class="alerta-login">{{ mensagem }}</div>
       <div class="form-group">
         <label for="email">E-mail</label>
         <input type="email" id="email" [(ngModel)]= "email"  placeholder="Digite seu e-mail" name="email" />

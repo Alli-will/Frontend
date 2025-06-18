@@ -1,0 +1,7 @@
+<nav class="sidebar" *ngIf="router.url !== '/login' && router.url !== '/cadastro'">
+  <ul>
+    <li><a href="#" (click)="showComingSoon($event)">Início</a></li>
+    <li><a routerLink="/diario">Diário</a></li>
+    <li *ngIf="router.url !== '/diario'"><a routerLink="/login">Login</a></li>
+  </ul>
+</nav>

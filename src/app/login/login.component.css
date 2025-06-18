@@ -5,10 +5,16 @@ body, .login-container {
 .login-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 100vh;
   background-color: #f0f4f8;
-  padding-top: 60px;
+  margin-left: 0 !important;
+}
+
+@media (min-width: 600px) {
+  .login-container {
+    margin-left: 0 !important;
+  }
 }
 
 .login-card {

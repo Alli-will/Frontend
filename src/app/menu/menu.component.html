@@ -1,12 +1,12 @@
-<header>
-    <div class="container">
-        <h1>Diário de Emoções</h1>
-        <nav>
-            <ul>
-                <li><a routerLink="/home">Início</a></li>
-                <li><a routerLink="/diario">Diário</a></li>
-                <li><a routerLink="/login">Login</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div class="sidebar-layout">
+  <aside class="sidebar" *ngIf="router.url !== '/login'">
+    <h1>Diário de Emoções</h1>
+    <nav>
+      <ul>
+        <li><a routerLink="/home">Início</a></li>
+        <li><a routerLink="/diario">Diário</a></li>
+        <li><a routerLink="/login">Login</a></li>
+      </ul>
+    </nav>
+  </aside>
+</div>

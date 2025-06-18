@@ -1,5 +1,15 @@
-<router-outlet></router-outlet>
+<ng-container *ngIf="!(['login', 'cadastro'].includes(router.url.replace('/', '')))">
+  <div style="display: flex; min-height: 100vh;">
+    <app-sidebar></app-sidebar>
+    <div style="flex: 1; margin-left: 220px; padding: 24px;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="['/login', '/cadastro'].includes(router.url)">
+  <router-outlet></router-outlet>
+</ng-container>
 
 
 
-    
+

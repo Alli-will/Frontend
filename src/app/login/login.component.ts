@@ -18,10 +18,9 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {} 
 
   onSubmit() {
-    console.log("teste", this.email, this.password);
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
-        this.router.navigate(['/home']); 
+        this.router.navigate(['/diario']); 
         localStorage.setItem('token', response.token); 
         alert('Login realizado com sucesso!');
       },

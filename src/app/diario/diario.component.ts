@@ -20,6 +20,16 @@ export class DiarioComponent implements OnInit {
   pesquisa: string = '';
   entradas: any[] = []; 
 
+  reasons = [
+    { id: 1, nome: 'Trabalho' },
+    { id: 2, nome: 'Família' },
+    { id: 3, nome: 'Saúde' },
+    { id: 4, nome: 'Relacionamento' },
+    { id: 5, nome: 'Estudos' }
+    // Adicione aqui os motivos reais do seu seed
+  ];
+  reasonIdSelecionado: number | null = null;
+
   constructor(private diaryService: DiaryService, private router: Router) {}
 
   ngOnInit(): void {
@@ -33,6 +43,7 @@ export class DiarioComponent implements OnInit {
       date: this.data,
       emotion: this.emocao,
       description: this.descricao,
+      reasonIds: this.reasonIdSelecionado ? [this.reasonIdSelecionado] : []
     };
 
     const token = localStorage.getItem('token'); 
@@ -50,7 +61,8 @@ export class DiarioComponent implements OnInit {
       },
       error: (err) => {
         console.error('Erro ao criar entrada:', err);
-        alert('Erro ao criar entrada. Tente novamente.');
+        const msg = err?.error?.message || err?.message || 'Erro ao criar entrada. Tente novamente.';
+        alert('Erro ao criar entrada: ' + JSON.stringify(msg));
       },
     });
   }
@@ -90,5 +102,11 @@ export class DiarioComponent implements OnInit {
   
   navegarHome(): void {
     this.router.navigate(['/home']); 
+  }
+
+  
+  sair(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }

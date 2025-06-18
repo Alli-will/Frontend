@@ -3,10 +3,8 @@
       
       <div class="button-container">
         
-        <button (click)="navegarHome()">Voltar para a Home</button>
-  
-        
         <button (click)="navegarHistorico()">Consultar Diários</button>
+        <button class="sair-btn" (click)="sair()">Sair</button>
       </div>
   
       
@@ -31,6 +29,12 @@
           <option value="ansioso">😨 Ansioso</option>
           <option value="raiva">😡 Com Raiva</option>
           <option value="calmo">😌 Calmo</option>
+        </select>
+  
+        <label for="reason">Razão da Emoção:</label>
+        <select id="reason" [(ngModel)]="reasonIdSelecionado" name="reasonIdSelecionado" required>
+          <option [ngValue]="null" disabled selected>Selecione</option>
+          <option *ngFor="let reason of reasons" [ngValue]="reason.id">{{ reason.nome }}</option>
         </select>
   
         <label for="descricao">Descrição:</label>

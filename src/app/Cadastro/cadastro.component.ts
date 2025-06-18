@@ -16,13 +16,21 @@ export class CadastroComponent {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    companyId: 1
   };
 
   constructor(private userService: UserService, private router: Router) {}
 
   onSubmit() {
-    this.userService.createUser(this.user).subscribe(
+    const userPayload = {
+      first_Name: this.user.firstName,
+      last_Name: this.user.lastName,
+      email: this.user.email,
+      password: this.user.password,
+      companyId: this.user.companyId
+    };
+    this.userService.createUser(userPayload).subscribe(
       (response) => {
         alert('Usuário cadastrado com sucesso!');
         this.router.navigate(['/login']); // Redireciona para login

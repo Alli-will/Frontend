@@ -1,24 +1,20 @@
 <app-menu></app-menu>
-<form>
 <div class="login-container">
   <div class="login-card">
     <h2>Login</h2>
-    <p>Bem-vindo de volta ao seu espaço de bem-estar</p>
-
+    <p>Bem-vindo!<br>Faça login ou cadastro para continuar.</p>
     <form (ngSubmit)="onSubmit()">
+      <div *ngIf="mensagem" class="alerta-login">{{ mensagem }}</div>
       <div class="form-group">
         <label for="email">E-mail</label>
         <input type="email" id="email" [(ngModel)]= "email"  placeholder="Digite seu e-mail" name="email" />
       </div>
-
       <div class="form-group">
         <label for="password">Senha</label>
         <input type="password" id="password" [(ngModel)]="password" placeholder="Digite sua senha" name="senha" />
       </div>
-
       <button type="submit" class="login-button" >Entrar</button>
     </form>
-
     <p class="signup-link">
       Não tem uma conta? <a href="/cadastro">Cadastre-se</a>
     </p>

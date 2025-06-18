@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DiarioComponent } from './diario/diario.component';
-import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
-import { PosteComponent } from './poste/poste.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({

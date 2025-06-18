@@ -30,9 +30,11 @@ export class AuthService {
 
   logout() {
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('token'); 
+      localStorage.removeItem('token');
+      sessionStorage.removeItem('token');
     }
-    this.currentUserSubject.next(null); 
+    this.currentUserSubject.next(null);
+    window.location.reload(); // força atualização do estado de autenticação
   }
 
   get currentUserValue(): string | null {

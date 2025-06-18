@@ -1,88 +1,154 @@
+/* Melhorias visuais para o formulário do diário */
+.section-diary {
+  background: #f9fafc;
+  padding: 40px 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  margin: 30px auto;
+  max-width: 500px;
+}
+
+.container {
+  padding: 24px 32px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+h2 {
+  font-size: 2rem;
+  color: #3a3a3a;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f7f7fa;
+  transition: border 0.2s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border: 1.5px solid #4f8cff;
+  outline: none;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, #4f8cff 60%, #38b6ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #38b6ff 60%, #4f8cff 100%);
+}
+
 .button-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
 .sair-btn {
-    background-color: #e74c3c;
-    color: white;
-    padding: 6px 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-right: 0;
+  background-color: #e74c3c;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-right: 0;
 }
 
 .sair-btn:hover {
-    background-color: #c0392b;
+  background-color: #c0392b;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 48%; 
+/* Melhorias para a consulta do diário */
+#historico .container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  padding: 32px 36px;
 }
 
-button:hover {
-    background-color: #45a049;
+#historico h2 {
+  color: #3a3a3a;
+  margin-bottom: 18px;
 }
 
-
-h2 {
-    text-align: center; 
-    margin-top: 40px; 
+#historico ul {
+  list-style: none;
+  padding: 0;
 }
 
-
-.section-diary {
-    background-color: #f4f4f9;
-    padding: 40px 20px; 
+#historico li {
+  background: #f7f7fa;
+  border-radius: 7px;
+  margin-bottom: 16px;
+  padding: 18px 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  text-align: left;
+  font-size: 1.08rem;
 }
 
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+#historico li strong {
+  color: #4f8cff;
+  font-size: 1.1rem;
 }
 
-
-input[type="date"], select, textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 60%; 
-    max-width: 400px; 
+#historico h3 {
+  color: #4f8cff;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  text-align: left;
 }
 
-
-textarea {
-    resize: vertical;
-    height: 150px; 
+#historico button {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 18px;
+  float: right;
 }
 
-
-form {
-    margin-top: 40px; 
+#historico button:hover {
+  background: #38b6ff;
 }
 
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-}
-
-footer p {
-    margin: 0;
+#historico p {
+  color: #888;
+  font-size: 1.05rem;
+  margin-top: 24px;
 }

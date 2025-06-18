@@ -7,13 +7,16 @@
   
       
       <div *ngIf="entradas.length > 0">
-        <h3>Entradas do Diário</h3>
-        <ul>
-          <li *ngFor="let entrada of entradas">
-            <strong>{{ entrada.date | date: 'dd/MM/yyyy' }}</strong> - {{ entrada.emotion }}<br />
-            {{ entrada.description }}
-          </li>
-        </ul>
+        <div class="diario-grid">
+          <div class="diario-card" *ngFor="let entrada of entradas">
+            <div class="diario-card-header">
+              <span class="diario-date">{{ entrada.date | date: 'dd/MM/yyyy' }}</span>
+              <span class="diario-emotion">{{ entrada.emotion }}</span>
+            </div>
+            <div class="diario-reason">Razão: <b>{{ entrada.reasonName || 'N/A' }}</b></div>
+            <div class="diario-description">{{ entrada.description }}</div>
+          </div>
+        </div>
       </div>
   
      

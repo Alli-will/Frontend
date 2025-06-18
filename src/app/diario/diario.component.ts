@@ -23,9 +23,12 @@ export class DiarioComponent implements OnInit {
   reasons = [
     { id: 1, nome: 'Trabalho' },
     { id: 2, nome: 'Família' },
-    { id: 3, nome: 'Saúde' },
-    { id: 4, nome: 'Relacionamento' },
-    { id: 5, nome: 'Estudos' }
+    { id: 3, nome: 'Relacionamento' },
+    { id: 4, nome: 'Estudos' },
+    { id: 5, nome: 'Saúde' },
+    { id: 6, nome: 'Financeiro' },
+    { id: 7, nome: 'Amizades' },
+    { id: 8, nome: 'Outro' }
     // Adicione aqui os motivos reais do seu seed
   ];
   reasonIdSelecionado: number | null = null;
@@ -33,7 +36,20 @@ export class DiarioComponent implements OnInit {
   constructor(private diaryService: DiaryService, private router: Router) {}
 
   ngOnInit(): void {
-    
+    // Garantir que o array reasons esteja inicializado corretamente
+    this.reasons = [
+      { id: 1, nome: 'Trabalho' },
+      { id: 2, nome: 'Família' },
+      { id: 3, nome: 'Relacionamento' },
+      { id: 4, nome: 'Estudos' },
+      { id: 5, nome: 'Saúde' },
+      { id: 6, nome: 'Financeiro' },
+      { id: 7, nome: 'Amizades' },
+      { id: 8, nome: 'Outro' }
+    ];
+
+    console.log('Array reasons inicializado:', this.reasons);
+
     this.carregarEntradas();
   }
 
